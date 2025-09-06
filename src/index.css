@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern AI Engineer Portfolio Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Dark theme with futuristic AI colors */
+    --background: 222 47% 3%;
+    --foreground: 210 40% 98%;
+
+    /* AI/Tech themed cards with dark surface */
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 95%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 95%;
+
+    /* Primary AI blue gradient colors */
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 217 91% 70%;
+
+    /* Secondary purple accent */
+    --secondary: 250 60% 15%;
+    --secondary-foreground: 210 40% 95%;
+
+    /* Muted tech grays */
+    --muted: 222 47% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent purple */
+    --accent: 270 80% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders and inputs with subtle glow */
+    --border: 222 47% 15%;
+    --input: 222 47% 12%;
+    --ring: 217 91% 60%;
+
+    /* Custom AI theme colors */
+    --tech-blue: 217 91% 60%;
+    --tech-purple: 270 80% 60%;
+    --tech-cyan: 200 100% 70%;
+    --surface: 222 47% 8%;
+    --surface-elevated: 222 47% 12%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(270 80% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(200 100% 70%), hsl(217 91% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(270 80% 60%), hsl(300 100% 70%));
+
+    /* Shadows and glows */
+    --shadow-glow: 0 0 30px hsl(217 91% 60% / 0.3);
+    --shadow-purple: 0 0 30px hsl(270 80% 60% / 0.2);
+    --shadow-card: 0 10px 40px hsl(222 47% 3% / 0.5);
+
+    --radius: 0.75rem;
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  /* Remove dark mode overrides since we're using single dark theme */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-['Inter',sans-serif] antialiased;
+    scroll-behavior: smooth;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Gradient backgrounds */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .glow-purple {
+    box-shadow: var(--shadow-purple);
+  }
+
+  .glow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Hero section styles */
+  .hero-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Card hover animations */
+  .card-hover {
+    transition: var(--transition-smooth);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Skill tag styles */
+  .skill-tag {
+    @apply px-3 py-1 text-sm bg-surface border border-border rounded-full 
+           text-muted-foreground hover:text-primary hover:border-primary
+           transition-all duration-300;
+  }
+
+  /* Project card styles */
+  .project-card {
+    @apply bg-card border border-border rounded-xl p-6 glow-card
+           hover:border-primary card-hover;
+  }
+
+  /* Certificate badge styles */
+  .cert-badge {
+    @apply bg-gradient-to-br from-primary/10 to-accent/10 
+           border border-primary/20 rounded-lg p-4
+           hover:border-primary/40 transition-all duration-300;
+  }
+
+  /* Navigation styles */
+  .nav-link {
+    @apply relative text-muted-foreground hover:text-primary 
+           transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute -bottom-1 left-0 w-0 h-0.5 
+           bg-primary transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Floating button */
+  .floating-btn {
+    @apply fixed bottom-8 right-8 z-50 gradient-primary 
+           text-primary-foreground px-6 py-3 rounded-full
+           shadow-lg hover:shadow-xl glow-primary
+           transition-all duration-300 hover:scale-105;
+  }
+
+  /* Section dividers */
+  .section-divider {
+    @apply w-24 h-1 gradient-primary rounded-full mx-auto;
+  }
+}

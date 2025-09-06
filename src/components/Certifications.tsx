@@ -1,5 +1,8 @@
 import { Award, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import nvidiaLogo from '@/assets/logos/nvidia-logo.png';
+import ibmLogo from '@/assets/logos/ibm-logo.png';
+import googleLogo from '@/assets/logos/google-logo.png';
 
 const Certifications = () => {
 const certifications = [
@@ -69,6 +72,15 @@ const certifications = [
     return colors[issuer] || "from-primary/20 to-accent/20 border-primary/30";
   };
 
+  const getIssuerLogo = (issuer: string) => {
+    const logos: { [key: string]: string } = {
+      "NVIDIA": nvidiaLogo,
+      "IBM": ibmLogo,
+      "Google": googleLogo
+    };
+    return logos[issuer];
+  };
+
   return (
     <section id="certifications" className="py-20 bg-background">
       <div className="container mx-auto px-6">
@@ -96,14 +108,23 @@ const certifications = [
                 </span>
               </div>
               
-              <h3 className="font-semibold text-foreground mb-2 text-sm leading-tight">
+              <h3 className="font-semibold text-foreground mb-3 text-sm leading-tight">
                 {cert.title}
               </h3>
               
-              <div className="flex items-center justify-between">
-                <span className="text-xs text-muted-foreground font-medium">
-                  {cert.issuer}
-                </span>
+              <div className="flex items-center justify-between mt-auto">
+                <div className="flex items-center gap-2">
+                  {getIssuerLogo(cert.issuer) && (
+                    <img 
+                      src={getIssuerLogo(cert.issuer)} 
+                      alt={`${cert.issuer} logo`}
+                      className="w-6 h-6 object-contain rounded"
+                    />
+                  )}
+                  <span className="text-xs text-muted-foreground font-medium">
+                    {cert.issuer}
+                  </span>
+                </div>
                 {cert.verifyLink && (
                   <Button 
                     size="sm" 

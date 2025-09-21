@@ -13,7 +13,7 @@ const Experience = () => {
     {
       title: "Group Lead - Smart Soil Monitoring",
       company: "ICAT Projects",
-      duration: "3 Months",
+      duration: "2 Months",
       type: "Project Leadership",
       description: "Led team development of AI-powered smart agriculture system with hardware integration for soil monitoring and ML-based decision making.",
       highlights: ["Team Leadership", "Hardware Integration", "ML Analysis", "Agriculture AI"]
@@ -21,7 +21,7 @@ const Experience = () => {
     {
       title: "Group Lead - Brain Tumor Detection",
       company: "Deep Learning Project",
-      duration: "3 Months", 
+      duration: "2 Months", 
       type: "Project Leadership",
       description: "Directed CNN-based brain tumor detection model development, training on 50K+ medical images with optimized hyperparameters for high accuracy.",
       highlights: ["Deep Learning", "Medical AI", "CNN Implementation", "Team Management"]

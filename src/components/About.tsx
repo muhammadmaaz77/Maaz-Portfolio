@@ -1,5 +1,8 @@
 const About = () => {
   const skills = [
+    "AI Research & Development",
+    "MLOPS & Model Deployment",
+    "Computer Vision & Image Processing",
     "Machine Learning & Deep Learning",
     "Agentic AI & Autonomous Systems", 
     "Workflow Automation with N8N",
